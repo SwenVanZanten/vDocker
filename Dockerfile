@@ -1,4 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
@@ -20,7 +22,7 @@ RUN apt-get -y install libzmq3-dev
 
 # switch to the freshly cloned verge project & compile it
 WORKDIR /app/verge
-RUN git fetch && git checkout v6.0.3
+RUN git fetch && git checkout v7.0.0
 
 # compile verged fresh (no ui)
 RUN ./autogen.sh
